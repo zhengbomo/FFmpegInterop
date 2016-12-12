@@ -3,8 +3,9 @@ FFmpegInterop build for nuget
 
 # Build on 2016.12.11
 
-* FFmpegInterop @ 67a29ba  
-* ffmpeg @ 12320c0
+* FFmpegInterop [@67a29ba](https://github.com/Microsoft/FFmpegInterop/tree/67a29bab939303caf694d3d813ee18fe5ff717c9)
+* ffmpeg [@12320c0](https://github.com/FFmpeg/FFmpeg/tree/12320c08221f0eecf6d9af3a6f12f42e656f0674)
+
 > only for Win10 ARM/x86/x64
 
 ## Nuget
