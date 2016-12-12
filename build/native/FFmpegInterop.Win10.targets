@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+  <PropertyGroup>
+    <FFmpeg-Platform Condition="'$(Platform)' == 'Win32'">x86</FFmpeg-Platform>
+    <FFmpeg-Platform Condition="'$(Platform)' != 'Win32'">$(Platform)</FFmpeg-Platform>
+  </PropertyGroup>
+  
+  <Target Name="CheckAnyCPU" Condition="('$(Platform)' != 'x64' AND '$(Platform)' != 'x86' AND '$(Platform)' != 'ARM')" BeforeTargets="BeforeBuild">
+		<Error Text="Lumia Imaging SDK does not support the $(Platform) target platform. Please consult http://go.microsoft.com/fwlink/?LinkId=528366 " />
+  </Target>
+
+  <ItemGroup>
+      <ReferenceCopyLocalPaths Include="$(MSBuildThisFileDirectory)..\..\runtimes\win10-$(FFmpeg-Platform)\native\*.dll" />
+   
+	  <Reference Include="$(MSBuildThisFileDirectory)..\..\lib\uap10.0\FFmpegInterop.winmd">
+        <Implementation>FFmpegInterop.dll</Implementation>
+      </Reference>
+  </ItemGroup>
+  
+
+  <ItemDefinitionGroup>
+    <ClCompile>
+      <AdditionalIncludeDirectories>$(MSBuildThisFileDirectory)..\..\Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(MSBuildThisFileDirectory)..\..\build\native\$(FFmpeg-Platform);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>avcodec.lib;avdevice.lib;avfilter.lib;avformat.lib;avutil.lib;swresample.lib;swscale.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+
+</Project>
