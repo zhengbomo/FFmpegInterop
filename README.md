@@ -3,6 +3,10 @@ FFmpegInterop build for nuget
 
 # Build on 2016.12.11
 
+* FFmpegInterop @ 67a29ba  
+* ffmpeg @ 12320c0
+> only for Win10 ARM/x86/x64
+
 ## Nuget
 ```
 Install-Package FFmpegInterop.UWP
